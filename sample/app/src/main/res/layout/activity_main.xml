@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="co.hyperverge.hypersnapsample.MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/sv_main">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CARD"
+                android:textColor="#0000EE"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"
+                android:id="@+id/tv_card"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PASSPORT"
+                android:textColor="#0000EE"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"
+                android:id="@+id/tv_passport"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="A4"
+                android:textColor="#0000EE"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"
+                android:id="@+id/tv_a4"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OTHER"
+                android:textColor="#0000EE"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"
+                android:id="@+id/tv_other"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Face"
+                android:textColor="#0000EE"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"
+                android:id="@+id/tv_face"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_marginTop="30dp"
+                android:textStyle="bold"
+                android:id="@+id/tv_result"/>
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="centerInside"
+                android:id="@+id/iv_result"/>
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>
