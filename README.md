@@ -7,13 +7,20 @@ HyperSnapSDK is HyperVerge's documents + face capture framework that captures im
 - minSdkVersion 19
 - targetSdkVersion 26
 
-#### Integration Steps
+### Sample
+- Please refer to the sample app provided in the repo to get an understanding of the implementation process.
+- To run the app, clone/download the repo and open **sample** using latest version of Android Studio
+- Open project build.gradle and replace **aws_access_key** and **aws_secret_pass** with the credentials provided by HyperVerge
+- Build and run the app
+
+### Integration Steps
 - Add the following set of lines to your `app/build.gradle`
 
   ```groovy
   dependencies {
-      compile('co.hyperverge:hypersnapsdk:1.0.3@aar', {
+      implementation('co.hyperverge:hypersnapsdk:1.0.3@aar', {
           transitive=true
+          exclude group: 'com.android.support'
       })
   }
   ```
