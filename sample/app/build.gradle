@@ -24,6 +24,7 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation('co.hyperverge:hypersnapsdk:1.0.3@aar', {
         transitive=true
+        exclude group: 'com.android.support'
     })
     implementation 'com.github.bumptech.glide:glide:3.7.0'
     testImplementation 'junit:junit:4.12'
