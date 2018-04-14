@@ -18,7 +18,7 @@ HyperSnapSDK is HyperVerge's documents + face capture framework that captures im
 
   ```groovy
   dependencies {
-      implementation('co.hyperverge:hypersnapsdk:1.0.3@aar', {
+      implementation('co.hyperverge:hypersnapsdk:1.0.4@aar', {
           transitive=true
           exclude group: 'com.android.support'
       })
