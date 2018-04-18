@@ -17,8 +17,14 @@ HyperSnapSDK is HyperVerge's documents + face capture framework that captures im
 - Add the following set of lines to your `app/build.gradle`
 
   ```groovy
+  android {
+      defaultConfig {
+          renderscriptTargetApi 19
+          renderscriptSupportModeEnabled true
+	  }
+  }
   dependencies {
-      implementation('co.hyperverge:hypersnapsdk:1.0.4@aar', {
+      implementation('co.hyperverge:hypersnapsdk:1.0.6@aar', {
           transitive=true
           exclude group: 'com.android.support'
       })
