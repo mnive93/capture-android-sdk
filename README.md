@@ -49,21 +49,34 @@ HyperSnapSDK is HyperVerge's documents + face capture framework that captures im
 - **Permissions**: The app requires the following permissions to work.
     - *Camera*
     - *Autofocus*
+    - *Read and Write external storage*
 
     Kindly note that for android v23 (Marshmallow) and above, you need to handle the runtime permissions inside your app.
 
 - Add the following line to your Application class (the class which extends android.app.Application) for initializing our Library. This must be run only once. Check [this](https://guides.codepath.com/android/Understanding-the-Android-Application-Class) link if you are unsure of what an Application class is. Here appId and appKey are the credentials that have been supplied by us.
   ```java
-  HyperSnapSDK.init();
-  ```
-- **Capturing Face**: For captureing face image, following method should be called:
+  HyperSnapSDK.init(context, APP_ID, APP_KEY);
+  ``` 
+- **Capturing Face**: For capturing face image, following method should be called:
   ```java
-  FaceCaptureActivity.start(context, myCaptureCompletionListener);
+  FaceCaptureActivity.start(context, LivenessMode.MODE, myCaptureCompletionListener);  
   ```
   where:
   - **context** is the context of the current Activity being displayed
   - **myCaptureCompletionListener** is an object of `CaptureCompletionHandler` and has been described later
+  - **LivenessMode.MODE** is an enum with 3 values.
+  - **LivenessMode.NONE** No liveness test is performed. The selfie that is captured is simply returned. If successful, the 	result dictionary in the completion handler has one key-value pair. 
+	-**imageUri** : local path of the image capture
+
+  -**LivenessMode.TEXTURELIVENESS** : Texture liveness test is performed on the selfie captured.  If successful, the result dictionary has two key-value pairs. 
+	- **imageUri** : local path of the image capture 
+	- **isLive** : Boolean value. Tells whether the selfie is that of a real person or a photograph
+
+
+-**LivenessMode.TEXTUREANDGESTURELIVENESS** : In this mode, based on the results of the texture Liveness call, the user might be asked to do a series of gestures to confirm liveness. The user performing the gestures is arbitrarily matched with the selfie captured. If  one or more of these matches fail, a 'faceMatch' error is returned (refer to 'Error Codes' section). If all the gestures are succefully performed and the face matches are sucessful, a result similar to the .textureLiveness mode is returned.
+
 - **Capturing Document**: For capturing document crop image(based on Aspect Ratio), following method should be called:
+
   ```java
   DocumentActivity.start(context, document, myCaptureCompletionListener);
   ```
@@ -120,6 +133,8 @@ HyperSnapSDK is HyperVerge's documents + face capture framework that captures im
       ```xml
       <string name="document_screen_title_text">Document Scanner</string>
       <string name="face_screen_title_text">Face Scanner</string>
+      <string name="place_face">Place your face within circle</string>
+      <string name="stay_still"> Capture Now </string>
       ```
 ### Contact Us
 If you are interested in integrating this SDK, please do send us a mail at [contact@hyperverge.co](mailto:contact@hyperverge.co) explaining your use case. We will give you the `aws_access_key` & `aws_secret_pass` so that you can try it out.
